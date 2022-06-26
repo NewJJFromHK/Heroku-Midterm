@@ -100,30 +100,7 @@ router.post('/edit/:id', (req, res, next) => {
      * ADD CODE HERE *
      *****************/
 
-     let id = req.params.id;
-
-     //instantiate a new Book to Edit
-     let updatedBook = new book
-     ({
-      "_id": id,
-      "Title": req.body.title,
-      "Price": req.body.price,
-      "Author": req.body.author,
-      "Genre": req.body.genre
-     });
- 
-     //update the book in the database
-     book.updateOne({_id: id}, updatedBook, function(err: CallbackError)
-     {
-         if(err)
-         {
-             console.error(err);
-             res.end(err);
-         }
- 
-         //edit was successful -> go to the BookList page
-         res.redirect('/books');
-     });
+    
 
 });
 

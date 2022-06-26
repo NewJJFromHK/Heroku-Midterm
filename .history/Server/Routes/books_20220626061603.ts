@@ -105,11 +105,11 @@ router.post('/edit/:id', (req, res, next) => {
      //instantiate a new Book to Edit
      let updatedBook = new book
      ({
-      "_id": id,
       "Title": req.body.title,
-      "Price": req.body.price,
       "Author": req.body.author,
-      "Genre": req.body.genre
+      "Description": req.body.description,
+      "Genre": req.body.genre,
+      "Price": req.body.price
      });
  
      //update the book in the database
