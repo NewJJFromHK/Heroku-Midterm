@@ -26,14 +26,14 @@ router.get('/', (req, res, next) =>
 });
 
 //  GET the Book Details page in order to add a new Book
-router.get('/add', (req, res, next) => 
+router.get('/book/add', (req, res, next) => 
 {
 
     /*****************
      * ADD CODE HERE *
      *****************/
 
-    res.render('books/details', {title: 'Add', page: 'details', books: ''});
+    res.render('books/index', {title: 'Add', page: 'details', books: ''});
 
 });
 
