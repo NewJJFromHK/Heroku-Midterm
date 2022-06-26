@@ -84,7 +84,7 @@ router.get('/:id', (req, res, next) => {
              console.error(err);
              res.end(err);
          }
-        
+         console.log("Edit", booksToEdit);
          //show the edit view with the data
          res.render('books/detail', {title: 'Edit', page: 'details', book: booksToEdit });
 
@@ -94,7 +94,7 @@ router.get('/:id', (req, res, next) => {
 });
 
 // POST - process the information passed from the details form and update the document
-router.post('/:id', (req, res, next) => {
+router.post('/edit/:id', (req, res, next) => {
 
     /*****************
      * ADD CODE HERE *
@@ -108,22 +108,6 @@ router.get('/delete/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-
-     let id = req.params.id;
-
-     //pass the id to the database and delete the movie
-     book.remove({_id: id}, function(err: CallbackError)
-     {
-         if(err)
-         {
-             console.error(err);
-             res.end(err);
-         }
- 
-         //delete was successful
-         res.redirect('/books');
-     });
-     
 });
 
 

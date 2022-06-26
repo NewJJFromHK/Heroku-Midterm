@@ -108,22 +108,6 @@ router.get('/delete/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-
-     let id = req.params.id;
-
-     //pass the id to the database and delete the movie
-     book.remove({_id: id}, function(err: CallbackError)
-     {
-         if(err)
-         {
-             console.error(err);
-             res.end(err);
-         }
- 
-         //delete was successful
-         res.redirect('/books');
-     });
-     
 });
 
 

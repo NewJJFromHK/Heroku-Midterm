@@ -40,9 +40,25 @@ router.post('/add', (req, res, next) => {
     });
 });
 router.get('/:id', (req, res, next) => {
+    let id = req.params.id;
+    books_1.default.findById(id, {}, {}, function (err, booksToEdit) {
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+        res.render('books/detail', { title: 'Edit', page: 'details', book: booksToEdit });
+    });
 });
 router.post('/:id', (req, res, next) => {
 });
 router.get('/delete/:id', (req, res, next) => {
+    let id = req.params.id;
+    books_1.default.remove({ _id: id }, function (err) {
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+        res.redirect('/books');
+    });
 });
 //# sourceMappingURL=books.js.map

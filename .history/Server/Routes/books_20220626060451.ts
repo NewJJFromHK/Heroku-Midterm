@@ -123,7 +123,6 @@ router.get('/delete/:id', (req, res, next) => {
          //delete was successful
          res.redirect('/books');
      });
-     
 });
 
 
