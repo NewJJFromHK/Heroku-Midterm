@@ -1,6 +1,5 @@
 // modules required for routing
 import express from 'express';
-import { CallbackError } from 'mongoose';
 const router = express.Router();
 export default router;
 
@@ -65,7 +64,6 @@ router.post('/add', (req, res, next) => {
       //new book has been added -> refresh the BookDetails
       res.redirect('/books');
   })
-
   });
 
 // GET the Book Details page in order to edit an existing Book

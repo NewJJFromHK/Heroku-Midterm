@@ -1,6 +1,5 @@
 // modules required for routing
 import express from 'express';
-import { CallbackError } from 'mongoose';
 const router = express.Router();
 export default router;
 
@@ -48,24 +47,17 @@ router.post('/add', (req, res, next) => {
     //instantiate a new Book to add
     let newBook = new book({
       "Title": req.body.title,
-      "Price": req.body.price,
       "Author": req.body.author,
-      "Genre": req.body.genre
+      "Description": req.body.description,
+      "Genre": req.body.genre,
+      "Price": req.body.price
+
+      "Title": String,
+      "Description": String,
+      "Price: Number,
+      "Author": String,
+      "Genre": String
     });
-
-    //Insert the new Book object into the database (Book collection)
-  book.create(newBook, function(err: CallbackError)
-  {
-      if(err)
-      {
-          console.error(err);
-          res.end(err);
-      }
-
-      //new book has been added -> refresh the BookDetails
-      res.redirect('/books');
-  })
-
   });
 
 // GET the Book Details page in order to edit an existing Book
@@ -74,8 +66,6 @@ router.get('/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-
-
 });
 
 // POST - process the information passed from the details form and update the document

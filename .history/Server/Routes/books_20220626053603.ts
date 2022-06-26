@@ -1,6 +1,5 @@
 // modules required for routing
 import express from 'express';
-import { CallbackError } from 'mongoose';
 const router = express.Router();
 export default router;
 
@@ -54,7 +53,7 @@ router.post('/add', (req, res, next) => {
     });
 
     //Insert the new Book object into the database (Book collection)
-  book.create(newBook, function(err: CallbackError)
+  book.create(newBook, function(err: Call)
   {
       if(err)
       {
