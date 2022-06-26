@@ -39,17 +39,17 @@ router.post('/add', (req, res, next) => {
         res.redirect('/books');
     });
 });
-router.get('/:id', (req, res, next) => {
+router.get('/edit/:id', (req, res, next) => {
     let id = req.params.id;
     books_1.default.findById(id, {}, {}, function (err, booksToEdit) {
         if (err) {
             console.error(err);
             res.end(err);
         }
-        res.render('books/detail', { title: 'Edit', page: 'details', book: booksToEdit });
+        res.render('books/details', { title: 'Edit', page: 'details', books: booksToEdit });
     });
 });
-router.post('/:id', (req, res, next) => {
+router.post('/edit/:id', (req, res, next) => {
 });
 router.get('/delete/:id', (req, res, next) => {
     let id = req.params.id;
