@@ -21,7 +21,7 @@ db.on("error", function()
 
 db.once("open", function()
 {
-  console.log(`Connected to MongoDB at: ${(DBConfig.RemoteURI) ? DBConfig.HostName : "localhost"}`);
+  console.log(`Connected to MongoDB at: ${DBConfig.HostName}`);
 });
 
 // define routers

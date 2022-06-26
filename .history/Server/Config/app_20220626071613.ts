@@ -14,6 +14,7 @@ import * as DBConfig from './db';
 mongoose.connect(DBConfig.RemoteURI || DBConfig.LocalURI);
 
 const db = mongoose.connection; // alias for the mongoose connection
+
 db.on("error", function()
 {
   console.error("connection error");
@@ -21,7 +22,7 @@ db.on("error", function()
 
 db.once("open", function()
 {
-  console.log(`Connected to MongoDB at: ${(DBConfig.RemoteURI) ? DBConfig.HostName : "localhost"}`);
+  console.log(`Connected to MongoDB at: ${DBConfig.HostName}`);
 });
 
 // define routers
