@@ -22,6 +22,7 @@ router.get('/', (req, res, next) => {
     });
 });
 router.get('/add', (req, res, next) => {
+    res.render('books/index', { title: 'Add', page: 'edit', books: '' });
 });
 router.post('/add', (req, res, next) => {
 });
